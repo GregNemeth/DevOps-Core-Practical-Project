@@ -1,4 +1,4 @@
-from flask import Flask, jasonify, Response, request
+from flask import Flask, jsonify, Response, request
 app = Flask(__name__)
 
 @app.route('/multiply', methods=['POST'])
