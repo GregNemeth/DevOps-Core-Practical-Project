@@ -1,20 +1,20 @@
 from flask import Flask, jsonify
-from random import choice
+import random
 
 
 app = Flask(__name__)
 
 @app.route('/randnum', methods=['GET'])
     
-    def service-2():
-        options = (
-            1,
-            2,
-            3,
-            2,
-            1,
-            3
-        )
+def service_3():
+    options = (
+        1,
+        2,
+        3,
+        2,
+        1,
+        3
+    )
     return jsonify(random.choice(options))
 
 if __name__ == '__main__':
