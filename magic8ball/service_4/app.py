@@ -1,14 +1,4 @@
-from flask import Flask, jsonify, Response, request
-app = Flask(__name__)
-
-@app.route('/multiply', methods=['POST'])
-def service_4():
-    a = request.json['a']
-    b = request.json['b']
-
-    multi = a * b
-
-    return jsonify(multi)
+from application import app
 
 if __name__ == '__main__':
-    app.run(host='0.0.0.0',debug=True)
+    app.run(debug=True, host='0.0.0.0')
