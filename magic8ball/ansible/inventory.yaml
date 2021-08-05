@@ -8,7 +8,7 @@ all:
         swarm-manager:
     swarm-workers:
       hosts:
-        swarm-worker:
+        # swarm-worker:
         swarm-worker-3:
   vars:
     ansible_user: GNemeth
