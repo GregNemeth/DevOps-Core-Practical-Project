@@ -1,0 +1,4 @@
+- hosts: swarm-worker-3
+  become: yes
+  roles:
+  - docker_install
