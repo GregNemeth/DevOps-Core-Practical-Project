@@ -8,16 +8,17 @@ def service_4():
     b = request.json['b']
     m = a * b
     prophecy = Nexus.query.filter_by(id=m).first()
-    history = History(a=a,b=b,x=m)
-    db.session.add(history)
-    db.session.commit
-
-    x = {
+    
+    xur = {
         "m":m,
         "prophecy":prophecy.omen
     }
 
-    return jsonify(x)
+    history = History(a=a,b=b,x=m,res=prophecy.omen)
+    db.session.add(history)
+    db.session.commit()
+
+    return jsonify(xur)
 
 if __name__ == '__main__':
     app.run(host='0.0.0.0',debug=True)

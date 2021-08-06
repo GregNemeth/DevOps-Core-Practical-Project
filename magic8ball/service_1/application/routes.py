@@ -1,5 +1,6 @@
-from flask import Flask, request, render_template
+from flask import render_template
 from application import app
+from service_4.application.models import History
 import requests
 
 
@@ -13,6 +14,6 @@ def home():
 
     x = requests.post('http://service_4:5000/multiply', json=multi).json()
 
-    
+    hist = History.query.order_by(History.id.desc()).limit(5).all()
 
-    return render_template('home.html', a=a, b=b, x=x)
+    return render_template('home.html', a=a, b=b, x=x, hist=hist)
