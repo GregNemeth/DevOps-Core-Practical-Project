@@ -1,5 +1,5 @@
-from application import app
-from application.models import Nexus
+from application import app, db
+from application.models import Nexus, History
 from flask import jsonify, request
 
 @app.route('/multiply', methods=['POST'])
@@ -8,9 +8,13 @@ def service_4():
     b = request.json['b']
     m = a * b
     prophecy = Nexus.query.filter_by(id=m).first()
+    history = History(a=a,b=b,x=m)
+    db.session.add(history)
+    db.session.commit
 
     x = {
-        m:prophecy
+        "m":m,
+        "prophecy":prophecy.omen
     }
 
     return jsonify(x)

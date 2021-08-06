@@ -3,13 +3,13 @@
 {% block body %}
 <div class='navbar'>
     How did we get here? service_2 sent {{ a }} and service_3 sent {{ b }}. 
-    Service_4 multiplied them and got {{ x.m }}. See the prophecy related below!
+    Service_4 multiplied them and got {{ x['m'] }}. See the prophecy related below!
 </div>
 <div class='prophecy'>
     <center>
         <h4>
             The MAGIC 8 BALL says: <br>
-            {{ x.prophecy }}
+            {{ x['prophecy'] }}
         </h4>
     </center>
 </div>

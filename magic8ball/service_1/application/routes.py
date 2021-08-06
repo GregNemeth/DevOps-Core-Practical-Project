@@ -13,4 +13,6 @@ def home():
 
     x = requests.post('http://service_4:5000/multiply', json=multi).json()
 
+    
+
     return render_template('home.html', a=a, b=b, x=x)
