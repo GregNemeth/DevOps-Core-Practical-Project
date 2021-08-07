@@ -59,3 +59,5 @@ services:
         - type: bind
           source: ./nginx.conf
           target: /etc/nginx/nginx.conf
+        depends_on:
+            - "service-1"

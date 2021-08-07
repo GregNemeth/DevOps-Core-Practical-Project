@@ -3,7 +3,7 @@
 {% block body %}
 <div class='navbar'>
     How did we get here? service_2 sent {{ a }} and service_3 sent {{ b }}. 
-    Service_4 multiplied them and got {{ x['m'] }}. See the prophecy related below!
+    Service_4 multiplied them and got {{ m }}. See the prophecy related below!
 </div>
 <div class='prophecy'>
     <center>
@@ -15,7 +15,7 @@
 </div>
 <div class='history'>
     {% for item in hist %}
-        {% item.id %} &emsp; {% item.a %} &emsp; {% item.b %} &emsp; {% item.x %}
+        {{ item }} </br>
     {% endfor %}
 </div>
 
