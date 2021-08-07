@@ -9,9 +9,15 @@ def service_4():
     m = a * b
     prophecy = Nexus.query.filter_by(id=m).first()
     
+    last_5 = History.query.order_by(History.id.desc()).limit(5).all()
+    last = []
+    for item in last_5:
+        last.append(item.res)
+
     xur = {
         "m":m,
-        "prophecy":prophecy.omen
+        "prophecy":prophecy.omen,
+        "last_5":last
     }
 
     history = History(a=a,b=b,x=m,res=prophecy.omen)

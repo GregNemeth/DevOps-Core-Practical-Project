@@ -9,4 +9,4 @@ class History(db.Model):
     a = db.Column(db.Integer, nullable=False)
     b = db.Column(db.Integer, nullable=False)
     x = db.Column(db.Integer, nullable=False)
-    res = db.Column(db.String(200), nullable=False)
+    res = db.Column(db.String(200))
