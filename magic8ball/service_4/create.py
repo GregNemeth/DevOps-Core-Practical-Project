@@ -13,7 +13,15 @@ populate = [
     (6,'Yes definitely'),
     (8, 'Reply hazy, try again'),
     (9,'The gods are with you on this one'),
-    (12,'Ask again later')
+    (12,'Ask again later'),
+    (10,'To truly find yourself, you should play hide and seek alone'),
+    (20,'Pass the bill to the person on your left'),
+    (30,'When in anger, sing the alphabet'),
+    (40,'The fortune you seek is in another cookie'),
+    (60,'Dont panic'),
+    (80, 'ERROR 404. fortune not found'),
+    (90,'Ooops. Wrong cookie'),
+    (120,'You are not illiterate')
     ]
 
 for list in populate:
