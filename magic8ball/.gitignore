@@ -4,4 +4,5 @@ venv/
 *.db
 .coverage
 .env
+alternatives.txt
 
