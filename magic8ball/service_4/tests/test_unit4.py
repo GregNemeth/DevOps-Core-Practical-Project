@@ -3,7 +3,7 @@ from flask_sqlalchemy import SQLAlchemy
 from flask_testing import TestCase
 from application import app, db
 from application.models import History, Nexus
-from application.routes import service_4
+
 
 
 class TestBase(TestCase):
