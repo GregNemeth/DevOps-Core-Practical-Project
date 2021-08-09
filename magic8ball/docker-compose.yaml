@@ -10,14 +10,15 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD:
             MYSQL_DATABASE:
+        volumes:
+        - type: volume
+          source: magic-db-vol
+          target: /var/lib/mysql
 
     service-1:
         container_name: service-1
         image: gregnemeth/service-1:latest
         build: service_1
-        environment:
-            MYSQL_ROOT_PASSWORD:
-            MYSQL_DATABASE:
         ports:
         - target: 5000
         depends_on:
@@ -61,3 +62,6 @@ services:
           target: /etc/nginx/nginx.conf
         depends_on:
             - "service-1"
+
+volumes:
+    magic-db-vol:
