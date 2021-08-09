@@ -3,4 +3,5 @@ venv/
 **/tests/__pycache__/
 *.db
 .coverage
+.env
 
