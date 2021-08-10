@@ -23,6 +23,8 @@ services:
         - target: 5000
         depends_on:
             - "magic-db"
+        deploy:
+            replicas: 3
 
     service-2:
         container_name: service-2
@@ -30,6 +32,8 @@ services:
         build: service_2
         ports:
         - target: 5000
+        deploy:
+            replicas: 3
 
     service-3:
         container_name: service-3
@@ -37,6 +41,8 @@ services:
         build: service_3
         ports:
         - target: 5000
+        deploy:
+            replicas: 3
 
     service-4:
         container_name: service-4
@@ -49,6 +55,8 @@ services:
         - target: 5000
         depends_on:
             - "magic-db"
+        deploy:
+            replicas: 3
 
     magic-proxy:
         container_name: magic-proxy
