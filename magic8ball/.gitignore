@@ -5,4 +5,4 @@ venv/
 .coverage
 .env
 alternatives.txt
-
+**/coverage.xml
