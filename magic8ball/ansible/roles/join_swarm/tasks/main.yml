@@ -1,8 +1,8 @@
 ---
 
-- name: join swarm
+- name: join_swarm
   community.docker.docker_swarm:
     state: join
     advertise_addr: "{{ ansible_hostname }}"
-    join_token: "{{ hostvars['swarm-manager']['swarm_info']['swarm-facts']['JoinTokens']['Worker'] }}"
+    join_token: "{{ hostvars['swarm-manager']['swarm_info']['swarm_facts']['JoinTokens']['Worker'] }}"
     remote_addrs: [ swarm-manager ]

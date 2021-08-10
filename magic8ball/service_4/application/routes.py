@@ -1,5 +1,5 @@
-from application import app, db
-from application.models import Nexus, History
+from . import app, db
+from .models import Nexus, History
 from flask import jsonify, request
 
 @app.route('/multiply', methods=['POST'])

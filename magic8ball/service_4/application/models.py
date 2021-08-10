@@ -1,4 +1,4 @@
-from application import db
+from . import db
 
 class Nexus(db.Model):
     id = db.Column(db.Integer, primary_key=True)

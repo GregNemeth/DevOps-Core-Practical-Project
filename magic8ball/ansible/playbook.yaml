@@ -1,11 +1,11 @@
 - hosts: load-balancer
   become: yes
   roles:
-  - load-balancer
+  - load_balancer
 
 - hosts:
-    swarm-workers
-    swarm-managers
+    swarm_workers
+    swarm_managers
   become: yes
   roles:
   - docker_install
@@ -16,7 +16,7 @@
   - init_swarm
 
 
-- hosts: swarm-worker-3
+- hosts: swarm-worker
   become: yes
   roles:
   - join_swarm
