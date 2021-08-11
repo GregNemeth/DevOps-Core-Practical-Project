@@ -31,6 +31,14 @@ pipeline{
                     '''
             }
         }
+        stage('Let ansible loose'){
+            steps{
+                sh'''
+                    cd magic8ball
+                    bash scripts/config.sh
+                    '''
+            }
+        }
     }
     post{
         always{
