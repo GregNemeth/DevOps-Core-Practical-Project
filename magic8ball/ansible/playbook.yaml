@@ -4,8 +4,8 @@
   - load_balancer
 
 - hosts:
-    swarm_workers
-    swarm_managers
+  - swarm_workers
+  - swarm_managers
   become: yes
   roles:
   - docker_install
