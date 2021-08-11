@@ -1,0 +1,13 @@
+pipeline{
+    agent any
+    stages{
+        stage('Testing'){
+            steps{
+                sh '''
+                    cd magic8ball
+                    bash scripts/tests.sh
+                    '''
+            }
+        }
+    }
+}
