@@ -2,7 +2,7 @@ pipeline{
     agent any
     environment{
         DOCKER_LOGIN=credentials('DOCKER_LOGIN')
-        MYSQL_DATABASE=credentials('MYSQL_DATABSE')
+        MYSQL_DATABASE=credentials('MYSQL_DATABASE')
         MYSQL_ROOT_PASSWORD=credentials('MYSQL_ROOT_PASSWORD')
     }
     stages{
