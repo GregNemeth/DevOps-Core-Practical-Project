@@ -8,6 +8,7 @@ sudo apt-get install -y curl jq python3-dev libpq-dev software-properties-common
 sudo apt-add-repository -y --update ppa:ansible/ansible
 sudo apt-get install -y ansible
 
+sudo rm /usr/share/keyrings/docker-archive-keyring.gpg
 if [ -z "$(docker --version 2> /dev/null)" ]; then
     curl https://get.docker.com | sudo bash
     sudo usermod -aG docker $USER

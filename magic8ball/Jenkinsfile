@@ -1,5 +1,10 @@
 pipeline{
     agent any
+    environment{
+        DOCKER_LOGIN=credentials('DOCKER_LOGIN')
+        MYSQL_DATABASE=credentials('MYSQL_DATABSE')
+        MYSQL_ROOT_PASSWORD=credentials('MYSQL_ROOT_PASSWORD')
+    }
     stages{
         stage('Testing'){
             steps{
@@ -14,6 +19,15 @@ pipeline{
                 sh'''
                     cd magic8ball
                     bash scripts/setup.sh
+                    '''
+            }
+        }
+        stage('Build and push containers'){
+            steps{
+                sh'''
+                    cd magic8ball
+                    docker login -u ${DOCKER_LOGIN_USR} -p ${DOCKER_LOGIN_PSW}
+                    bash scripts/build.sh
                     '''
             }
         }
