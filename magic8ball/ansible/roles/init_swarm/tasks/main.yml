@@ -1,11 +1,8 @@
 ---
 # tasks file for init_swarm
-- name: Initialize a swarm
+- name: "Initialize a swarm"
   community.docker.docker_swarm:
     state: present
   register: swarm_info
 
-# - name: get join token for worker
-#   shell: docker swarm join-token worker | grep docker
-#   register: swarm_worker_token
 
