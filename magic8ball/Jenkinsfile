@@ -39,14 +39,7 @@ pipeline{
                     '''
             }
         }
-        stage('Deploy'){
-            steps{
-                sh'''
-                    cd magic8ball
-                    bash scripts/deploy.sh
-                    '''
-            }
-        }
+    }
     post{
         always{
             cobertura autoUpdateHealth: false,
@@ -64,4 +57,4 @@ pipeline{
             zoomCoverageChart: false
         }
     }
-}
+}   
