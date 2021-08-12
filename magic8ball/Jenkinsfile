@@ -1,5 +1,7 @@
 pipeline{
-    agent any
+    agent{
+        label 'agent'
+    }
     environment{
         DOCKER_LOGIN=credentials('DOCKER_LOGIN')
         MYSQL_DATABASE=credentials('MYSQL_DATABASE')
