@@ -1,4 +1,5 @@
-from application import app
+from application import app,db
 
 if __name__ == '__main__':
+    import create
     app.run(debug=True, host='0.0.0.0')

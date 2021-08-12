@@ -5,8 +5,6 @@ services:
         container_name: magic-db
         image: gregnemeth/magic-db:latest
         build: db
-        ports:
-        - target: 3306
         environment:
             MYSQL_ROOT_PASSWORD:
             MYSQL_DATABASE:
@@ -19,8 +17,6 @@ services:
         container_name: service-1
         image: gregnemeth/service-1:latest
         build: service_1
-        ports:
-        - target: 5000
         depends_on:
             - "magic-db"
         deploy:
@@ -30,8 +26,6 @@ services:
         container_name: service-2
         image: gregnemeth/service-2:latest
         build: service_2
-        ports:
-        - target: 5000
         deploy:
             replicas: 3
 
@@ -39,8 +33,6 @@ services:
         container_name: service-3
         image: gregnemeth/service-3:latest
         build: service_3
-        ports:
-        - target: 5000
         deploy:
             replicas: 3
 
@@ -51,8 +43,6 @@ services:
         environment:
             MYSQL_ROOT_PASSWORD:
             MYSQL_DATABASE:
-        ports:
-        - target: 5000
         depends_on:
             - "magic-db"
         deploy:

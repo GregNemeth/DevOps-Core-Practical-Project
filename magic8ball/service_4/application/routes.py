@@ -14,7 +14,7 @@ def service_4():
     
     for item in last_5:
         last.append(item.res)
-        history = History(a=a,b=b,x=m,res=prophecy.omen)
+    history = History(a=a,b=b,x=m,res=prophecy.omen)
     db.session.add(history)
     db.session.commit()
     
