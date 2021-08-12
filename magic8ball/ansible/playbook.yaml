@@ -10,13 +10,13 @@
   roles:
     - docker_install
 
-- hosts: swarm-manager
+- hosts: clear-1
   become: yes
   roles:
     - init_swarm
 
 
-- hosts: swarm-worker
+- hosts: swarm_workers
   become: yes
   roles:
     - join_swarm

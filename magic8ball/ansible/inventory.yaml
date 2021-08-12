@@ -5,10 +5,10 @@ all:
         load-balancer:
     swarm_managers:
       hosts:
-        swarm-manager:
+        clear-1:
     swarm_workers:
       hosts:
-        swarm-worker:
+        clearlinux-2:
         
   vars:
     
