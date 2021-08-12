@@ -27,7 +27,8 @@ for list in populate:
     try:
         item = Nexus(id=list[0],omen=list[1])
         db.session.add(item)
+        db.session.commit()
     except Exception: pass 
         
 
-db.session.commit()
+
