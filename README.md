@@ -126,12 +126,13 @@ python3 -m pytest --cov=. --cov-report xml -v
 ### **Front-end Desing**
 When navigating to the address of the load-balancer on the default HTTP port (80) the previously described processes take place, and present us with the following information. Html templating and Jinja-2 was used to visualize the information
 
-![home_page]()
+![home_page](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/home.png)
 
 
 ## **Footer**
 
 ### **Future improvements**
+As always there is plenty of room for improvement. Deployment time can be reduced via private image repositories, and testing can be further expanded to include previously mentioned features.
 
 ### **Acknowledgements**
 Ryan Wright
