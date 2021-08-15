@@ -23,9 +23,17 @@ class TestBase(TestCase):
                 (3,'It is decidedly so'),
                 (4,'My reply is no'),
                 (6,'Yes definitely'),
-                (8, 'Reply hazy try again'),
+                (8, 'Reply hazy, try again'),
                 (9,'The gods are with you on this one'),
-                (12,'Ask again later')
+                (12,'Ask again later'),
+                (10,'To truly find yourself, you should play hide and seek alone'),
+                (20,'Pass the bill to the person on your left'),
+                (30,'When in anger, sing the alphabet'),
+                (40,'The fortune you seek is in another cookie'),
+                (60,'Dont panic'),
+                (80, 'ERROR 404. fortune not found'),
+                (90,'Ooops. Wrong cookie'),
+                (120,'You are not illiterate')
                   ]
 
         for entry in filler:
@@ -61,7 +69,15 @@ class TestCreate(TestBase):
                 'Yes definitely',
                 'Reply hazy try again',
                 'The gods are with you on this one',
-                'Ask again later'
+                'Ask again later',
+                'To truly find yourself, you should play hide and seek alone',
+                'Pass the bill to the person on your left',
+                'When in anger, sing the alphabet',
+                'The fortune you seek is in another cookie',
+                'Dont panic',
+                'ERROR 404. fortune not found',
+                'Ooops. Wrong cookie',
+                'You are not illiterate'
                   ]
 
         for i in range(1, 5):
@@ -76,7 +92,7 @@ class TestCreate(TestBase):
                     follow_redirects=True
                     )
 
-        self.assertIn(response.json['m'], range(1, 13))
+        self.assertIn(response.json['m'], range(1, 121))
         self.assertIn(response.json['prophecy'], omens)
         for x in range(0, 5):
             self.assertIn(response.json['last_5'][x], omens)
