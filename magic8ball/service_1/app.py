@@ -13,7 +13,7 @@ def home():
 
     x = requests.post('http://service-4:5000/multiply', json=multi).json()
     
-    hist = x['last_5']# should be simple list
+    hist = x['last_5']# should be simple list []
     m = x['m'] 
     return render_template('home.html', a=a, b=b, m=m, hist=hist, x=x)
 
