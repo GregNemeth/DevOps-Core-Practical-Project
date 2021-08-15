@@ -1,0 +1,65 @@
+version: "3.7"
+
+services:
+    magic-db:
+        container_name: magic-db
+        image: gregnemeth/magic-db:latest
+        build: db
+        environment:
+            MYSQL_ROOT_PASSWORD:
+            MYSQL_DATABASE:
+        volumes:
+        - type: volume
+          source: magic-db-vol
+          target: /var/lib/mysql
+
+    service-1:
+        container_name: service-1
+        image: gregnemeth/service-1:latest
+        build: service_1
+        depends_on:
+            - "magic-db"
+        deploy:
+            replicas: 3
+
+    service-2:
+        container_name: service-2
+        image: gregnemeth/service-2:latest
+        build: service_2
+        deploy:
+            replicas: 3
+
+    service-3:
+        container_name: service-3
+        image: gregnemeth/service-3:latest
+        build: service_3
+        deploy:
+            replicas: 3
+
+    service-4:
+        container_name: service-4
+        image: gregnemeth/service-4:latest
+        build: service_4
+        environment:
+            MYSQL_ROOT_PASSWORD:
+            MYSQL_DATABASE:
+        depends_on:
+            - "magic-db"
+        deploy:
+            replicas: 3
+
+    magic-proxy:
+        container_name: magic-proxy
+        image: nginx:alpine
+        ports:
+        - target: 80
+          published: 80
+        volumes:
+        - type: bind
+          source: ./nginx.conf
+          target: /etc/nginx/nginx.conf
+        depends_on:
+            - "service-1"
+
+volumes:
+    magic-db-vol:

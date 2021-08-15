@@ -1,0 +1,68 @@
+pipeline{
+    agent any
+    environment{
+        DOCKER_LOGIN=credentials('DOCKER_LOGIN')
+        MYSQL_DATABASE=credentials('MYSQL_DATABASE')
+        MYSQL_ROOT_PASSWORD=credentials('MYSQL_ROOT_PASSWORD')
+    }
+    stages{
+        stage('Testing'){
+            steps{
+                sh '''
+                    cd magic8ball
+                    bash scripts/tests.sh
+                    '''
+            }
+        }
+        stage('Setup/Install docker, ansible'){
+            steps{
+                sh'''
+                    cd magic8ball
+                    bash scripts/setup.sh
+                    '''
+            }
+        }
+        stage('Build and push containers'){
+            steps{
+                sh'''
+                    cd magic8ball
+                    docker login -u ${DOCKER_LOGIN_USR} -p ${DOCKER_LOGIN_PSW}
+                    bash scripts/build.sh
+                    '''
+            }
+        }
+        stage('Let ansible loose'){
+            steps{
+                sh'''
+                    cd magic8ball
+                    bash scripts/config.sh
+                    '''
+            }
+        }
+        stage('deploy'){
+            steps{
+                sh'''
+                    cd magic8ball
+                    bash scripts/deploy.sh
+                    '''
+            }
+        }
+    }
+    post{
+        always{
+            cobertura autoUpdateHealth: false,
+            autoUpdateStability: false,
+            coberturaReportFile: 'magic8ball/coverage.xml',
+            conditionalCoverageTargets: '70, 0, 0',
+            enableNewApi: true,
+            failUnhealthy: false,
+            failUnstable: false,
+            lineCoverageTargets: '80, 0, 0',
+            maxNumberOfBuilds: 0,
+            methodCoverageTargets:
+            '80, 0, 0', onlyStable:
+            false, sourceEncoding: 'ASCII',
+            zoomCoverageChart: false
+        }
+    }
+}   

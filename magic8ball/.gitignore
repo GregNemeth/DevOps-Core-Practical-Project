@@ -1,0 +1,8 @@
+venv/
+**/__pycache__/
+**/tests/__pycache__/
+*.db
+.coverage
+.env
+alternatives.txt
+**/coverage.xml
