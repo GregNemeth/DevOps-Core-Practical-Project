@@ -1,14 +1,15 @@
 {% extends 'base.html' %}
 
 {% block body %}
+
 <div class='navbar'>
     How did we get here? service_2 sent {{ a }} and service_3 sent {{ b }}. 
-    Service_4 multiplied them and got {{ m }}. See the prophecy related below!
+    Service_4 multiplied them and the result with 10 and got {{ m }}. See the prophecy related below!
 </div>
 <div class='prophecy'>
     <center>
         <h1>
-            The MAGIC 8 BALL says: <br>
+            The FORTUNE COOKIE says: <br>
             {{ x['prophecy'] }}
         </h1>
     </center>

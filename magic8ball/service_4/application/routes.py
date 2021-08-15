@@ -6,7 +6,7 @@ from flask import jsonify, request
 def service_4():
     a = request.json['a']
     b = request.json['b']
-    m = a * b
+    m = (a * b)*10
     prophecy = Nexus.query.filter_by(id=m).first()
     
     last_5 = History.query.order_by(History.id.desc()).limit(5).all()
