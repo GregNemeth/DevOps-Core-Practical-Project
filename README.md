@@ -134,3 +134,9 @@ When navigating to the address of the load-balancer on the default HTTP port (80
 ### **Future improvements**
 
 ### **Acknowledgements**
+Ryan Wright
+
+Oliver Nichols
+
+### **Author**
+Gergely Nemeth
