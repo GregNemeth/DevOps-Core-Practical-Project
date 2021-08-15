@@ -121,7 +121,7 @@ pip3 install -r requirements.txt
 
 python3 -m pytest --cov=. --cov-report xml -v
 ```
-![Coverage]
+![Coverage](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/test_reports.png)
 
 ### **Front-end Desing**
 When navigating to the address of the load-balancer on the default HTTP port (80) the previously described processes take place, and present us with the following information. Html templating and Jinja-2 was used to visualize the information
