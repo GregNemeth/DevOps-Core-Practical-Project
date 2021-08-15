@@ -52,19 +52,19 @@ For my project I decided to create a simple magic 8 ball app, as the focus is no
 
 For project tracking, I chose to go with a Scrum board in Jira. This tool was used for user stories, tracking tasks from in-progress to done. I also used it to record some difficulties to be worked out. You can see the board below.
 
-[Jira_board]
+![Jira_board](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/Jiraboard.png)
 
 ### **Risk Assessment**
 
 My risk assessment can be seen below. I started of with a base and tried to expand as further issues were encountered or came to mind. Risk assessment is an important part of every project as countermeasures and reactions to certain situations can be documented in advance, which can result in decreased down-time, in case difficulties arise.
 
-[Risk_assessment]
+![Risk_assessment](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/risk-assessment.png)
 
 ### **Test analysis**
 
 As this project is about creating a CI/CD pipeline , and cultivating a devops mentality, testing was one of the main pillars of this process. Since code is continuously pushed to the VCS it is vital that testing is present as early in the process as possible. Considering the scope of the project, I have decided to follow the concept of MVP which inculed automated testing of the functions through unit testing , and left integration testing as a manual process.(In the future more complex testing can be implemented, which could include security and systems testing as well) I understand this was only viable, because I was the only person working on the project. To achieve a Test-Driven-Development, I started off by creating a sheet, following the concept of the project outlining what each function should do, writing the test first and making sure it runs before any push occured.You can observe the sheet below:
 
-[Test_sheet]
+![Test_sheet](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/Testing%20Reqs.png)
 
 ## **Infrastructure**
 
@@ -82,25 +82,25 @@ The VCS (git & github) have been set to send a webhook to the Jenkis server, whe
 
 The jenkins file is stored on the VCS and can be seen [here].
 
-[Pipeline_Diagram]
+![Pipeline_Diagram](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/pipeline.png)
 
 ### **Entity Diagram**
 This project utilizes two tables. It is important that during the planning project that the tables and their attributes are clearly defined , so later on valdiations and tests can be written accordingly. Even though an abstracted one-to-many relationship can be drawn between these tables, in reality they are unrelated, and for the proper working of the application it is not needed to implement unnecessary code to join these tables.
 
-[entity_diagram]
+![entity_diagram](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/ed_diagram.png)
 
 ### **Interactions**
 
 The infrastructure of the environment after deployment can be observed below. This shows what resource are used when a user connects.
 
-[Inf_diagram]
+![Inf_diagram](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/infrastructure.png)
 
 
 ### **The services**
 
 As i mentioned earlier, I created an app, where services 2 & 3 provide a random number within a range through a GET request. Service-1 sends those numbers to service-4 via a POST request. Service-4 multiplies the numbers and uses the result to fetch the prophecy of the magic 8 ball from one of the 2 tables found within a container running MySQL. The response json object contains a list of the last 5 prophecies, the current prediction as well as the result of the multiplication. The second table is responsible for storing the previous results. See the service diagram below.
 
-[service_diagram]
+![service_diagram](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/services.png)
 
 ### **Refactoring**
 
@@ -121,11 +121,12 @@ pip3 install -r requirements.txt
 
 python3 -m pytest --cov=. --cov-report xml -v
 ```
+![Coverage]
 
 ### **Front-end Desing**
 When navigating to the address of the load-balancer on the default HTTP port (80) the previously described processes take place, and present us with the following information. Html templating and Jinja-2 was used to visualize the information
 
-[home_page]
+![home_page]
 
 
 ## **Footer**
