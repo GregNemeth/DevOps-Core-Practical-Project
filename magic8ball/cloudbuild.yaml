@@ -12,11 +12,11 @@ steps:
   dir: magic8ball
 
 # Docker Build
-- name: 'gcr.io/cloud-builders/docker'
+- name: 'europe-west2-docker.pkg.dev/sunlit-theory317815/gregs-gcp-image-repo/cl-doccomp:latest'
   dir: magic8ball
-  args: ['build', '-t', 
-         'gcr.io/$PROJECT_ID/gregs-gcp-image-repo/myimage:$SHORT_SHA', '.']
+  args: ['build','--parallel']
          
-# Docker push to Google Artifact Registry
-- name: 'gcr.io/cloud-builders/docker'
-  args: ['push', 'gcr.io/gregs-gcp-image-repo/$_REPO_NAME/myimage:$SHORT_SHA']
+# Docker Push
+- name: 'europe-west2-docker.pkg.dev/sunlit-theory317815/gregs-gcp-image-repo/cl-doccomp:latest'
+  dir: magic8ball
+  args: [push]
