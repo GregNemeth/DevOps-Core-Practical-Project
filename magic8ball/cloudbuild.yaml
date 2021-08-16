@@ -19,4 +19,4 @@ steps:
          
 # Docker push to Google Artifact Registry
 - name: 'gcr.io/cloud-builders/docker'
-  args: ['push', "gcr.io/$PROJECT_ID/$_REPO_NAME/myimage:$SHORT_SHA']
+  args: ['push', 'gcr.io/$PROJECT_ID/$_REPO_NAME/myimage:$SHORT_SHA']
