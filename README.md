@@ -103,7 +103,7 @@ As i mentioned earlier, I created an app, where services 2 & 3 provide a random 
 ![service_diagram](https://github.com/GregNemeth/DevOps-Core-Practical-Project/blob/main/images/services.png)
 
 ### **Refactoring**
-
+During this project many attempts have been made to reduce the build time. I attempted to port the whole project to sleeker linux distribution, however many errors were encountered during this trials, and I had to abandon this branch to make sure there is an MVP available. Main issues were the lack of jenkins available for the chosen distro, which I tried to overcome by using a containerized build server. I managed to set it up in a way that the jenkins container is able to create other containers to act as agents, linked it to the docker socket of the host machine, so these agents would run parallell and not inside jenkins, however I failed to establish connection between these containers. The absolute aim was to reduce build time using Google container repository and smaller images.
 
 ## **Development**
 
