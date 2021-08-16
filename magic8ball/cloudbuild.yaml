@@ -8,8 +8,7 @@ steps:
 # Run unit tests
 - name: python
   entrypoint: python
-  args: ["-m", "pytest", "--cov=.","--junitxml=${SHORT_SHA}_test_log.xml"] 
-  logging: CLOUD_LOGGING_ONLY    
+  args: ["-m", "pytest", "--cov=.","--junitxml=${SHORT_SHA}_test_log.xml"]
   dir: magic8ball
 
 # Docker Build
