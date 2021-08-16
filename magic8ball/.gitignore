@@ -6,3 +6,4 @@ venv/
 .env
 alternatives.txt
 **/coverage.xml
+.cloudbuild.yaml.swp
