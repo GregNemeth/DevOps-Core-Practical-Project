@@ -3,7 +3,7 @@ version: "3.7"
 services:
     magic-db:
         container_name: magic-db
-        image: gregnemeth/magic-db:latest
+        image: gregnemeth/magic-db:k8s
         build: db
         environment:
             MYSQL_ROOT_PASSWORD:
@@ -15,7 +15,7 @@ services:
 
     service-1:
         container_name: service-1
-        image: gregnemeth/service-1:latest
+        image: gregnemeth/service-1:k8s
         build: service_1
         depends_on:
             - "magic-db"
@@ -24,23 +24,24 @@ services:
 
     service-2:
         container_name: service-2
-        image: gregnemeth/service-2:latest
+        image: gregnemeth/service-2:k8s
         build: service_2
         deploy:
             replicas: 3
 
     service-3:
         container_name: service-3
-        image: gregnemeth/service-3:latest
+        image: gregnemeth/service-3:k8s
         build: service_3
         deploy:
             replicas: 3
 
     service-4:
         container_name: service-4
-        image: gregnemeth/service-4:latest
+        image: gregnemeth/service-4:k8s
         build: service_4
         environment:
+            DATABASE_URI:
             MYSQL_ROOT_PASSWORD:
             MYSQL_DATABASE:
         depends_on:

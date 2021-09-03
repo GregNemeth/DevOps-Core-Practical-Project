@@ -1,0 +1,45 @@
+apiVersion: v1
+kind: Service
+metadata:
+  name: service-2
+spec:
+  type: ClusterIP
+  selector:
+    app: magic8ball
+    svc: "2"
+  ports: 
+  - protocol: TCP
+    port: 5000
+    targetPort: 5000
+
+---
+
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: service-2
+  labels:
+    app: magic8ball
+    svc: "2"
+spec:
+  replicas: 3
+  selector:
+    matchLabels:
+      app: magic8ball
+      svc: "2"
+  strategy:
+    type: RollingUpdate
+    rollingUpdate:
+      maxSurge: 25%
+      maxUnavailable: 25%
+  template:
+    metadata:
+      labels:
+        app: magic8ball
+        svc: "2"
+    spec:
+      containers:
+      - name: service-2
+        image: gregnemeth/service-2
+        ports:
+        - containerPort: 5000
